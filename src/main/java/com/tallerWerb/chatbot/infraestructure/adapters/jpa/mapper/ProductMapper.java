@@ -7,14 +7,11 @@ public class ProductMapper {
 
     public Product offEntityToModel(ProductoEntity productoEntity){
         Product product = null;
-        if(productoEntity != null){
             product = new Product(
                     productoEntity.getId(),
                     productoEntity.getName(),
                     productoEntity.getPrice()
             );
             return product;
-        }
-
     }
 }
