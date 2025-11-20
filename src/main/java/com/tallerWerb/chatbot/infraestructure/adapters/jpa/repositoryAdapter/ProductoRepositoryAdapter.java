@@ -1,5 +1,6 @@
 package com.tallerWerb.chatbot.infraestructure.adapters.jpa.repositoryAdapter;
 
+import com.tallerWerb.chatbot.application.dto.ProductDto;
 import com.tallerWerb.chatbot.application.port.out.ProductRepository;
 import com.tallerWerb.chatbot.domain.models.Product;
 import com.tallerWerb.chatbot.infraestructure.adapters.entity.ProductoEntity;
@@ -18,5 +19,12 @@ public class ProductoRepositoryAdapter implements ProductRepository {
     public List<Product> findAll() {
         List<ProductoEntity> products = productoJpaRepository.findAll();
         return products.stream().map(productMapper::offEntityToModel).toList();
+    }
+
+    @Override
+    public Product save(ProductDto product) {
+        ProductoEntity productoEntity = productMapper.ofDtotoEntity(product);
+        productoJpaRepository.save(productoEntity);
+        return productMapper.offEntityToModel(productoEntity);
     }
 }
