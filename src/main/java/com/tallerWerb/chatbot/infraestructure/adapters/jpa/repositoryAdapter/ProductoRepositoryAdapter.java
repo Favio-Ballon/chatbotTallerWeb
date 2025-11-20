@@ -12,9 +12,14 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@AllArgsConstructor
 public class ProductoRepositoryAdapter implements ProductRepository {
     private final ProductoJpaRepository productoJpaRepository;
+
+    public ProductoRepositoryAdapter(ProductoJpaRepository productoJpaRepository) {
+        this.productoJpaRepository = productoJpaRepository;
+    }
+
+
     private final ProductMapper productMapper = new ProductMapper();
     @Override
     public List<Product> findAll() {

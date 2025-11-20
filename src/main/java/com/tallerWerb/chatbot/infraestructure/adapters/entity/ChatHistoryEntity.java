@@ -27,4 +27,28 @@ public class ChatHistoryEntity {
 
     @Column(columnDefinition = "TEXT")
     private String messagesJson;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getUserKey() {
+        return userKey;
+    }
+
+    public void setUserKey(String userKey) {
+        this.userKey = userKey;
+    }
+
+    public String getMessagesJson() {
+        return messagesJson;
+    }
+
+    public void setMessagesJson(String messagesJson) {
+        this.messagesJson = messagesJson;
+    }
 }
